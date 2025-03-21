@@ -16,12 +16,60 @@
     <property name="shotcut:caption">VID-20250321-WA0001.mp4</property>
     <property name="xml">was here</property>
   </chain>
+  <chain id="chain1" out="00:02:02.035">
+    <property name="length">00:02:02.068</property>
+    <property name="eof">pause</property>
+    <property name="resource">Ice Beat-Le.mp3</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">0</property>
+    <property name="video_index">-1</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2025-03-21T21:00:58</property>
+    <property name="shotcut:hash">6f4ef5640140458491a2de98976350f6</property>
+    <property name="ignore_points">0</property>
+    <property name="shotcut:caption">Ice Beat-Le.mp3</property>
+    <property name="xml">was here</property>
+  </chain>
+  <producer id="producer0" in="00:00:00.000" out="03:59:60.019">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:/Users/thv/Dropbox/Github/Particle/ice_robot/images/IMG-20250321-WA0001.jpg</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="creation_time">2025-03-21T18:55:45</property>
+    <property name="shotcut:caption">IMG-20250321-WA0001.jpg</property>
+    <property name="shotcut:hash">58ce13d5774afb2aa7db6422136f2053</property>
+    <property name="ignore_points">0</property>
+    <property name="xml">was here</property>
+  </producer>
+  <producer id="producer1" in="00:00:00.000" out="03:59:60.019">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:/Users/thv/Dropbox/Github/Particle/ice_robot/images/IMG-20250321-WA0003.jpg</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="creation_time">2025-03-21T18:55:46</property>
+    <property name="shotcut:caption">IMG-20250321-WA0003.jpg</property>
+    <property name="shotcut:hash">7a7e4d1364eab447913558ccc12fb972</property>
+    <property name="ignore_points">0</property>
+    <property name="xml">was here</property>
+  </producer>
   <playlist id="main_bin">
     <property name="xml_retain">1</property>
     <entry producer="chain0" in="00:00:00.000" out="00:00:12.611"/>
+    <entry producer="chain1" in="00:00:00.000" out="00:02:02.035"/>
+    <entry producer="producer0" in="00:00:00.000" out="00:00:03.970"/>
+    <entry producer="producer1" in="00:00:00.000" out="00:00:03.970"/>
   </playlist>
-  <producer id="black" in="00:00:00.000" out="00:00:38.433">
-    <property name="length">00:00:38.467</property>
+  <producer id="black" in="00:00:00.000" out="00:00:46.474">
+    <property name="length">00:00:46.507</property>
     <property name="eof">pause</property>
     <property name="resource">0</property>
     <property name="aspect_ratio">1</property>
@@ -30,23 +78,8 @@
     <property name="set.test_audio">0</property>
   </producer>
   <playlist id="background">
-    <entry producer="black" in="00:00:00.000" out="00:00:38.433"/>
+    <entry producer="black" in="00:00:00.000" out="00:00:46.474"/>
   </playlist>
-  <chain id="chain1" out="00:00:38.433">
-    <property name="length">00:00:38.467</property>
-    <property name="eof">pause</property>
-    <property name="resource">C:/Users/thv/Dropbox/Github/Particle/ice_robot/images/VID-20250321-WA0002.mp4</property>
-    <property name="mlt_service">avformat-novalidate</property>
-    <property name="seekable">1</property>
-    <property name="audio_index">1</property>
-    <property name="video_index">0</property>
-    <property name="mute_on_pause">0</property>
-    <property name="creation_time">2025-03-21T18:55:47</property>
-    <property name="shotcut:hash">d6d7377f09387f826a5ad25b485a8595</property>
-    <property name="ignore_points">0</property>
-    <property name="shotcut:caption">VID-20250321-WA0002.mp4</property>
-    <property name="xml">was here</property>
-  </chain>
   <chain id="chain2" out="00:00:38.433">
     <property name="length">00:00:38.467</property>
     <property name="eof">pause</property>
@@ -61,7 +94,57 @@
     <property name="ignore_points">0</property>
     <property name="shotcut:caption">VID-20250321-WA0002.mp4</property>
     <property name="xml">was here</property>
-    <filter id="filter0" in="00:00:31.094" out="00:00:38.433">
+    <filter id="filter0" out="00:00:05.505">
+      <property name="argument"></property>
+      <property name="geometry">00:00:00.000=85/-117:678x465;00:00:05.505=85/480:678x465</property>
+      <property name="family">Sans</property>
+      <property name="size">48</property>
+      <property name="weight">400</property>
+      <property name="style">normal</property>
+      <property name="fgcolour">0x000000ff</property>
+      <property name="bgcolour">#00000000</property>
+      <property name="olcolour">0x00000000</property>
+      <property name="pad">0</property>
+      <property name="halign">left</property>
+      <property name="valign">top</property>
+      <property name="outline">0</property>
+      <property name="pixel_ratio">1</property>
+      <property name="mlt_service">qtext</property>
+      <property name="shotcut:filter">richText</property>
+      <property name="html">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Verdana'; font-size:72pt; font-weight:600; color:#ffffff;&quot;&gt;Ice Beat-Le&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</property>
+      <property name="shotcut:animIn">00:00:05.538</property>
+      <property name="shotcut:preset">scroll-down</property>
+      <property name="shotcut:animOut">00:00:00.000</property>
+      <property name="disable">1</property>
+    </filter>
+  </chain>
+  <chain id="chain3" out="00:00:38.433">
+    <property name="length">00:00:38.467</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:/Users/thv/Dropbox/Github/Particle/ice_robot/images/VID-20250321-WA0002.mp4</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2025-03-21T18:55:47</property>
+    <property name="shotcut:hash">d6d7377f09387f826a5ad25b485a8595</property>
+    <property name="ignore_points">0</property>
+    <property name="shotcut:caption">VID-20250321-WA0002.mp4</property>
+    <property name="xml">was here</property>
+    <filter id="filter1" in="00:00:31.094" out="00:00:38.433">
+      <property name="start">1</property>
+      <property name="level">00:00:05.371=1;00:00:07.340=0</property>
+      <property name="mlt_service">brightness</property>
+      <property name="shotcut:filter">fadeOutBrightness</property>
+      <property name="alpha">1</property>
+      <property name="shotcut:animOut">00:00:02.002</property>
+    </filter>
+    <filter id="filter2" in="00:00:31.094" out="00:00:38.433">
       <property name="background">color:#00000000</property>
       <property name="mlt_service">affine</property>
       <property name="shotcut:filter">affineSizePosition</property>
@@ -78,27 +161,98 @@
   <playlist id="playlist0">
     <property name="shotcut:video">1</property>
     <property name="shotcut:name">V1</property>
-    <entry producer="chain1" in="00:00:00.000" out="00:00:31.060"/>
-    <entry producer="chain2" in="00:00:31.094" out="00:00:38.433"/>
+    <blank length="00:00:04.003"/>
+    <entry producer="chain2" in="00:00:00.000" out="00:00:31.060"/>
+    <entry producer="chain3" in="00:00:31.094" out="00:00:38.433"/>
   </playlist>
-  <producer id="producer0" in="00:00:00.000" out="00:01:56.582">
-    <property name="length">00:01:56.616</property>
+  <producer id="producer2" in="00:00:00.000" out="03:59:60.019">
+    <property name="length">04:00:00.000</property>
     <property name="eof">pause</property>
-    <property name="resource">0.33:C:/Users/thv/Dropbox/Github/Particle/ice_robot/images/VID-20250321-WA0001.mp4</property>
+    <property name="resource">C:/Users/thv/Dropbox/Github/Particle/ice_robot/images/IMG-20250321-WA0001.jpg</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="creation_time">2025-03-21T18:55:45</property>
+    <property name="shotcut:caption">IMG-20250321-WA0001.jpg</property>
+    <property name="shotcut:hash">58ce13d5774afb2aa7db6422136f2053</property>
+    <property name="ignore_points">0</property>
+    <property name="xml">was here</property>
+    <filter id="filter3" out="00:00:03.970">
+      <property name="argument"></property>
+      <property name="geometry">00:00:00.000=85/480:678x465;00:00:03.970=85/-117:678x465</property>
+      <property name="family">Sans</property>
+      <property name="size">48</property>
+      <property name="weight">400</property>
+      <property name="style">normal</property>
+      <property name="fgcolour">0x000000ff</property>
+      <property name="bgcolour">#00000000</property>
+      <property name="olcolour">0x00000000</property>
+      <property name="pad">0</property>
+      <property name="halign">left</property>
+      <property name="valign">top</property>
+      <property name="outline">0</property>
+      <property name="pixel_ratio">1</property>
+      <property name="mlt_service">qtext</property>
+      <property name="shotcut:filter">richText</property>
+      <property name="html">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Verdana'; font-size:72pt; font-weight:600; color:#ffffff;&quot;&gt;Ice Beat-Le&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</property>
+      <property name="shotcut:animIn">00:00:04.003</property>
+      <property name="shotcut:preset">scroll-up</property>
+      <property name="shotcut:animOut">00:00:00.000</property>
+    </filter>
+    <filter id="filter4" out="00:00:03.970">
+      <property name="start">1</property>
+      <property name="level">00:00:00.000=0;00:00:00.968=1</property>
+      <property name="mlt_service">brightness</property>
+      <property name="shotcut:filter">fadeInBrightness</property>
+      <property name="alpha">1</property>
+      <property name="shotcut:animIn">00:00:01.001</property>
+    </filter>
+    <filter id="filter5" out="00:00:03.970">
+      <property name="background">color:#00000000</property>
+      <property name="mlt_service">affine</property>
+      <property name="shotcut:filter">affineSizePosition</property>
+      <property name="transition.fill">1</property>
+      <property name="transition.distort">0</property>
+      <property name="transition.rect">1.94595 -81.7297 851.027 638.27 1</property>
+      <property name="transition.valign">middle</property>
+      <property name="transition.halign">center</property>
+      <property name="shotcut:animIn">00:00:00.000</property>
+      <property name="shotcut:animOut">00:00:00.000</property>
+      <property name="transition.threads">0</property>
+    </filter>
+    <filter id="filter6" out="00:00:03.970">
+      <property name="start">1</property>
+      <property name="level">00:00:03.003=1;00:00:03.970=0</property>
+      <property name="mlt_service">brightness</property>
+      <property name="shotcut:filter">fadeOutBrightness</property>
+      <property name="alpha">1</property>
+      <property name="shotcut:animOut">00:00:01.001</property>
+    </filter>
+  </producer>
+  <producer id="producer3" in="00:00:00.000" out="00:01:45.072">
+    <property name="length">00:01:45.106</property>
+    <property name="eof">pause</property>
+    <property name="resource">0.366:C:/Users/thv/Dropbox/Github/Particle/ice_robot/images/VID-20250321-WA0001.mp4</property>
     <property name="aspect_ratio">1</property>
     <property name="seekable">1</property>
     <property name="audio_index">1</property>
     <property name="video_index">0</property>
     <property name="mute_on_pause">1</property>
-    <property name="warp_speed">0.33</property>
+    <property name="warp_speed">0.366</property>
     <property name="warp_resource">C:/Users/thv/Dropbox/Github/Particle/ice_robot/images/VID-20250321-WA0001.mp4</property>
     <property name="mlt_service">timewarp</property>
     <property name="shotcut:producer">avformat</property>
     <property name="video_delay">0</property>
     <property name="shotcut:hash">5798733c5bb10c38696192b9e43fa1ca</property>
-    <property name="shotcut:caption">VID-20250321-WA0001.mp4 (0.33x)</property>
+    <property name="shotcut:caption">VID-20250321-WA0001.mp4 (0.366x)</property>
     <property name="xml">was here</property>
-    <filter id="filter1" out="00:00:38.200">
+    <filter id="filter7" out="00:00:34.463">
       <property name="smooth">4.41</property>
       <property name="radius">0.86</property>
       <property name="x">0.5</property>
@@ -108,7 +262,7 @@
       <property name="mlt_service">vignette</property>
       <property name="disable">1</property>
     </filter>
-    <filter id="filter2" out="00:00:38.200">
+    <filter id="filter8" out="00:00:34.463">
       <property name="background">color:#00000000</property>
       <property name="mlt_service">affine</property>
       <property name="shotcut:filter">affineSizePosition</property>
@@ -122,7 +276,7 @@
       <property name="transition.threads">0</property>
       <property name="transition.fix_rotate_x">-90</property>
     </filter>
-    <filter id="filter3" out="00:00:38.200">
+    <filter id="filter9" out="00:00:34.463">
       <property name="start">1</property>
       <property name="level">1</property>
       <property name="mlt_service">brightness</property>
@@ -130,15 +284,7 @@
       <property name="alpha">00:00:00.000=0;00:00:00.968=1</property>
       <property name="shotcut:animIn">00:00:01.001</property>
     </filter>
-    <filter id="filter4" out="00:00:38.200">
-      <property name="start">1</property>
-      <property name="level">1</property>
-      <property name="mlt_service">brightness</property>
-      <property name="shotcut:filter">fadeOutBrightness</property>
-      <property name="alpha">00:00:37.232=1;00:00:38.200=0</property>
-      <property name="shotcut:animOut">00:00:01.001</property>
-    </filter>
-    <filter id="filter5" out="00:00:38.200">
+    <filter id="filter10" out="00:00:34.463">
       <property name="rect">531 239 319 247 1</property>
       <property name="circle">0</property>
       <property name="color">#00000000</property>
@@ -147,19 +293,134 @@
       <property name="shotcut:filter">cropRectangle</property>
       <property name="disable">0</property>
     </filter>
+    <filter id="filter11" out="00:00:34.463">
+      <property name="filter">frei0r.alphaspot</property>
+      <property name="mlt_service">mask_start</property>
+      <property name="shotcut:filter">maskSimpleShape</property>
+      <property name="filter.9">0</property>
+      <property name="filter.0">0</property>
+      <property name="filter.1">0.8506</property>
+      <property name="filter.2">0.9023</property>
+      <property name="filter.3">0.212601</property>
+      <property name="filter.4">0.405201</property>
+      <property name="filter.5">0.5</property>
+      <property name="filter.6">0.3534</property>
+      <property name="disable">0</property>
+    </filter>
+    <filter id="filter12" out="00:00:34.463">
+      <property name="start">1</property>
+      <property name="level">1</property>
+      <property name="mlt_service">brightness</property>
+      <property name="shotcut:filter">fadeOutBrightness</property>
+      <property name="alpha">00:00:30.493=1;00:00:34.463=0</property>
+      <property name="shotcut:animOut">00:00:04.003</property>
+      <property name="disable">0</property>
+    </filter>
+  </producer>
+  <producer id="producer4" in="00:00:00.000" out="03:59:60.019">
+    <property name="length">04:00:00.000</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:/Users/thv/Dropbox/Github/Particle/ice_robot/images/IMG-20250321-WA0003.jpg</property>
+    <property name="ttl">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="progressive">1</property>
+    <property name="seekable">1</property>
+    <property name="mlt_service">qimage</property>
+    <property name="creation_time">2025-03-21T18:55:46</property>
+    <property name="shotcut:caption">IMG-20250321-WA0003.jpg</property>
+    <property name="shotcut:hash">7a7e4d1364eab447913558ccc12fb972</property>
+    <property name="ignore_points">0</property>
+    <property name="xml">was here</property>
+    <filter id="filter13" out="00:00:03.970">
+      <property name="start">1</property>
+      <property name="level">00:00:00.000=0;00:00:00.968=1</property>
+      <property name="mlt_service">brightness</property>
+      <property name="shotcut:filter">fadeInBrightness</property>
+      <property name="alpha">1</property>
+      <property name="shotcut:animIn">00:00:01.001</property>
+    </filter>
+    <filter id="filter14" out="00:00:03.970">
+      <property name="start">1</property>
+      <property name="level">00:00:03.003=1;00:00:03.970=0</property>
+      <property name="mlt_service">brightness</property>
+      <property name="shotcut:filter">fadeOutBrightness</property>
+      <property name="alpha">1</property>
+      <property name="shotcut:animOut">00:00:01.001</property>
+    </filter>
+    <filter id="filter15" out="00:00:03.970">
+      <property name="background">color:#00000000</property>
+      <property name="mlt_service">affine</property>
+      <property name="shotcut:filter">affineSizePosition</property>
+      <property name="transition.fill">1</property>
+      <property name="transition.distort">0</property>
+      <property name="transition.rect">-21.4054 -64.8649 871.784 653.838 1</property>
+      <property name="transition.valign">middle</property>
+      <property name="transition.halign">center</property>
+      <property name="shotcut:animIn">00:00:00.000</property>
+      <property name="shotcut:animOut">00:00:00.000</property>
+      <property name="transition.threads">0</property>
+    </filter>
   </producer>
   <playlist id="playlist1">
     <property name="shotcut:video">1</property>
     <property name="shotcut:name">V2</property>
-    <entry producer="producer0" in="00:00:00.000" out="00:00:38.200"/>
+    <entry producer="producer2" in="00:00:00.000" out="00:00:03.970"/>
+    <blank length="00:00:03.970"/>
+    <entry producer="producer3" in="00:00:00.000" out="00:00:34.463"/>
+    <entry producer="producer4" in="00:00:00.000" out="00:00:03.970"/>
   </playlist>
-  <tractor id="tractor0" title="Shotcut version 22.09.23" in="00:00:00.000" out="00:00:38.433">
+  <chain id="chain4" out="00:02:02.035">
+    <property name="length">00:02:02.068</property>
+    <property name="eof">pause</property>
+    <property name="resource">Ice Beat-Le.mp3</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">0</property>
+    <property name="video_index">-1</property>
+    <property name="mute_on_pause">0</property>
+    <property name="creation_time">2025-03-21T21:00:58</property>
+    <property name="shotcut:hash">6f4ef5640140458491a2de98976350f6</property>
+    <property name="ignore_points">0</property>
+    <property name="shotcut:caption">Ice Beat-Le.mp3</property>
+    <property name="xml">was here</property>
+    <filter id="filter16" out="00:00:46.474">
+      <property name="window">75</property>
+      <property name="max_gain">20dB</property>
+      <property name="level">00:00:00.000=-60;00:00:00.968=0</property>
+      <property name="mlt_service">volume</property>
+      <property name="shotcut:filter">fadeInVolume</property>
+      <property name="shotcut:animIn">00:00:01.001</property>
+    </filter>
+    <filter id="filter17" out="00:00:46.474">
+      <property name="window">75</property>
+      <property name="max_gain">20dB</property>
+      <property name="level">00:00:44.505=0;00:00:46.474=-60</property>
+      <property name="mlt_service">volume</property>
+      <property name="shotcut:filter">fadeOutVolume</property>
+      <property name="shotcut:animOut">00:00:02.002</property>
+    </filter>
+  </chain>
+  <playlist id="playlist2">
+    <property name="shotcut:audio">1</property>
+    <property name="shotcut:name">A1</property>
+    <entry producer="chain4" in="00:00:00.000" out="00:00:46.474"/>
+  </playlist>
+  <tractor id="tractor0" title="Shotcut version 22.09.23" in="00:00:00.000" out="00:00:46.474">
     <property name="shotcut">1</property>
     <property name="shotcut:projectAudioChannels">2</property>
     <property name="shotcut:projectFolder">0</property>
+    <properties name="shotcut:markers">
+      <properties name="0">
+        <property name="text">Marker 1</property>
+        <property name="start">00:00:05.738</property>
+        <property name="end">00:00:09.442</property>
+        <property name="color">#008000</property>
+      </properties>
+    </properties>
     <track producer="background"/>
     <track producer="playlist0"/>
     <track producer="playlist1"/>
+    <track producer="playlist2" hide="video"/>
     <transition id="transition0">
       <property name="a_track">0</property>
       <property name="b_track">1</property>
@@ -189,6 +450,13 @@
       <property name="mlt_service">frei0r.cairoblend</property>
       <property name="threads">0</property>
       <property name="disable">0</property>
+    </transition>
+    <transition id="transition4">
+      <property name="a_track">0</property>
+      <property name="b_track">3</property>
+      <property name="mlt_service">mix</property>
+      <property name="always_active">1</property>
+      <property name="sum">1</property>
     </transition>
   </tractor>
 </mlt>
