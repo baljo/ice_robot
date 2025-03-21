@@ -1,4 +1,4 @@
-PAB_BPW34_reading.side
+IR-Beacon.c
 >compiler=C
 >memtype=cmm main ram compact
 >optimize=-Os
