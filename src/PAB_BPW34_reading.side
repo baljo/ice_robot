@@ -1,0 +1,6 @@
+PAB_BPW34_reading.side
+>compiler=C
+>memtype=cmm main ram compact
+>optimize=-Os
+>-fno-exceptions
+>BOARD::ACTIVITYBOARD
