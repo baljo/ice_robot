@@ -17,7 +17,7 @@ Meat Ice Beat-Le, a symphatethic looking rover which is beating ice by spreading
 
 
 
-### How is it working?
+### How does it work?
 
 While the rover might look complex, with several electronic components, motors, servo and many mechanical parts, it is actually in the end not complicated at all, perhaps even minimalistic. The reason for this is that there are no unnecessary bells and whistles, the rover is doing what it was planned to do, nothing more, nothing less. The journey while designing and building the end product was though far from simple, with many obstacles on the road.
 
@@ -27,7 +27,9 @@ Navigation is performed with the help of an IR beacon transmitting a 38 kHz IR-s
 
 ![](/images/Ice%20Beat-Le-01.png)
 
---*Rover on driveway*--
+--*Rover on a driveway*--
+
+  
 
 To solve this problem, I found a [solution](https://learn.parallax.com/courses/ir-beacon-seeking-activitybot-with-blocklyprop/) involving both transmitting the IR-signal itself as well as changing the intensity of it. By varying the strength of the beacon transmitter and let the rover measure how many times the beacon is seen over a period while its light is varying, the rover is able to navigate.
 
@@ -43,19 +45,44 @@ As mentioned, the rover measures for each IR receiver how many time it has seen 
 
 #### Sanding/Salting
 
-In the name of simplicity, and instead of inventing a salting mechanism needing a strong motor, I decided to use a force available to all of us for free → gravity. Sand, salt, or any other suitable material is poured into the container which has a hole in the bottom. To avoid that the sand falls away directly, a servo-controlled lid is opened or closed within the main control program. The sand falls down on the spreader which spreads it over approximately a half meter in width while the rover is moving forward.
+In the name of simplicity, and instead of inventing a salting mechanism needing a strong motor, I decided to use a force available to all of us for free → gravity. Sand, salt, or any other suitable material is poured into the container which has a hole in the bottom. To avoid that the sand falls away directly, a servo-controlled lid is opened or closed within the main control program. The sand falls down on the spreader which spreads it over approximately a half meter in width while the rover is moving forward. If large particles are used, there's a risk of them getting stuck at the bottom. The rover is however twitching a bit by alternating between driving, turning, and coasting, and I found out that this leads to that potential clogs are dissolved.
+
 
 ![](/images/Sanding%20mechanism.png)
+
+![](/images/Dome%20top%20and%20bottom.png)
 
 ![](/images/Container%20and%20servo.png)
 
 
-## The Story
-
-
-
 ## Materials Required
-List all parts/components and their links.
+
+**Rover**
+- [Particle Photon 2](https://store.particle.io/products/photon-2?srsltid=AfmBOopQNaLMpaWTah99rLqtw8SrwQJ14wpPAscubC-w2jhXiWBzn8VZ)
+- Dagu Wild Thumper 6WD (my rover included 6 motors and 2 HB-25 motor controllers)
+- 38 kHz Infrared IR Receiver, e.g. [this](https://www.jameco.com/z/TSOP34138-Vishay-Infrared-IR-Receiver-38Khz-Carrier-Frequency-Use-with-Parallax-350-00017-Boe-Sumo_2109691.html?srsltid=AfmBOopVCaDbtUFmN_kAVQGARot6k9othqFZ7YneEFLCrC20eo9ZwV60) 
+- [Kitronik Linear Actuator Kit](https://kitronik.co.uk/products/2595-linear-actuator?_pos=3&_sid=e648f346a&_ss=r)
+- 5V power for the Photon 2, e.g. a small powerbank
+- separate power source recommended for the motors, max 7.5 VDC
+- large breadboard
+- 2 servo headers to connect to the HB-25 motor controllers
+- 10kΩ resistors, 2 pcs
+- assorted wires
+
+
+**IR Beacon**
+- [Propeller Activity Board](https://www.parallax.com/product/propeller-activity-board-wx/), or any other microcontroller board with an D/A-chip
+- [TSAL6200 IR LED](https://www.partco.fi/en/leds/special-purpose-leds/17474-tsal6200.html), TSAL6100 even better as it has narrower angle
+- [IRLZ44N Mosfet](https://www.partco.fi/en/electronic-components/actives/bjt-and-fet/switching-fets-n-channel/5057-irlz44n.html)
+- 2.2Ω Resistor
+- 10kΩ Resistor
+- 5V power for the microcontroller, e.g. a powerbank
+- assorted wires
+
+Do note that the program is responsible for turning the IR LED on and off, if it's on all the time, it will burn the LED or the resistor. The Mosfet is needed to push out far more current than is possible right out of a microcontroller pin.
+
+
+
 
 ## Assembly Instructions
 Detailed step-by-step build process.
@@ -79,4 +106,6 @@ Common issues and solutions.
 
 This minimalistic first version of the rover is not completely autonomous, and it moves only while the IR-beacon is transmitting. Right now it only moves forward (and of course turns left or right), but it would be quite easy to have it travel forward for a given time, and reverse the same amount of time. To make the rover autonomous, it would need bumper switches and/or distance measuring sensors to avoid obstacles. A differential GPS with centimeter precision would solve many problems, but comes with a hefty price tag.  
 
+
+Learning Fusion 360 from scratch, designing, and 3D-printing the 12 different components took a lot of time, many iterations and roughly 1 kg of filament out of which 80 % was scrapped.
 Possible future enhancements.
