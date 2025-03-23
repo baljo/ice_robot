@@ -5,6 +5,7 @@
 Too many persons get injured (or worse) due to icy conditions, in the US alone there are [tens of thousands of injuries](https://www.bls.gov/opub/ted/2016/42480-work-injuries-involved-ice-sleet-or-snow-in-2014.htm) involving ice, sleet, or snow. Typically the city or state is responsible for ensuring public roads are safe to use, but the responsibility moves to you at the start of your own driveway, and you thus need to ensure it is safe. For this You can of course salt or sand your icy driveway manually, similarly as you can mow your lawn manually, vacuum your home manually, doing the dishes by hand, etc. Curing your driveway from ice might for some be fun and for others tedious, if tedious then look no further but instead continue reading!
 
 ![](/images/Icy_driveway.jpg)
+
 --*Finland, March 2025*--
 
 
@@ -25,6 +26,7 @@ While the rover might look complex, with several electronic components, motors, 
 Navigation is performed with the help of an IR beacon transmitting a 38 kHz IR-signal of varying intensity. This IR-signal is using the Sony protocol, same as many TV remote controls are using. Unfortunately the IR-receivers - "eyes" - on the rover can only detect if there is - or is not - a modulated IR light present, they can't measure the intensity of the light. This means it isn't possible to navigate only using a constant IR-signal as there's no easy way for the rover to know if it's heading to the left or to the right of the signal beam.  
 
 ![](/images/Ice%20Beat-Le-01.png)
+
 --*Rover on driveway*--
 
 To solve this problem, I found a [solution](https://learn.parallax.com/courses/ir-beacon-seeking-activitybot-with-blocklyprop/) involving both transmitting the IR-signal itself as well as changing the intensity of it. By varying the strength of the beacon transmitter and let the rover measure how many times the beacon is seen over a period while its light is varying, the rover is able to navigate.
