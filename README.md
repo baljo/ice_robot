@@ -2,7 +2,7 @@
 
 ## The Problem
 
-Too many persons get injured (or worse) due to icy conditions, in the US alone there are [tens of thousands of injuries](https://www.bls.gov/opub/ted/2016/42480-work-injuries-involved-ice-sleet-or-snow-in-2014.htm) involving ice, sleet, or snow. Typically the city or state is responsible for ensuring public roads are safe to use, but the responsibility moves to you at the start of your own driveway, and you thus need to ensure it is safe. For this you can of course salt or sand your icy driveway manually, similarly as you can mow your lawn manually, vacuum your home manually, doing the dishes by hand, etc. Curing your driveway from ice might for some be fun and for others tedious, if tedious then look no further but instead continue reading for a solution!
+Too many persons get injured (or worse) due to icy conditions, in the US alone there are [tens of thousands of injuries](https://www.bls.gov/opub/ted/2016/42480-work-injuries-involved-ice-sleet-or-snow-in-2014.htm) involving ice, sleet, or snow. TTypically, the city or state is responsible for ensuring public roads are safe, but responsibility shifts to you at the start of your own driveway. Thus, you need to ensure it is safe yourself. You can, of course, salt or sand your icy driveway manually, just as you can mow your lawn, vacuum your home, or wash dishes by hand. While curing your driveway from ice might be enjoyable for some, it’s tedious for others. If you find yourself in the latter group, read on for a solution!
 
 ![](/images/Icy_driveway.jpg)
 --*Finland, March 2025*--
@@ -10,9 +10,9 @@ Too many persons get injured (or worse) due to icy conditions, in the US alone t
 
 ## The Solution
 
-Meet Ice Beat-Le, a symphatethic looking rover which is beating ice by spreading salt, sand, or any other material on your driveway or lawn. The rover drives with all six wheels, and it navigates with its IR-eyes locking in on an IR-Beacon. 
+Meet **Ice Beat-Le**, a symphatethic looking rover designed to combat ice by spreading salt, sand, or other suitable materials on your driveway or path. The rover is driven by six wheels and navigates using IR sensors ("eyes") to lock onto an IR beacon.
 
-As MCU for the rover I chose the Particle Photon 2 as it's so versatile and powerful, but still simple to work with. For the IR beacon I used a Propeller Activity Board from Parallax as it has an D/A chip built in. If I'd had another Photon 2 available, I'd probably redesigned the beacon circuit and program to use PWM (Pulse Width Modulation) instead of the D/A chip.
+For the rover’s MCU, I selected the Particle Photon 2 because it's versatile, powerful, yet easy to work with. The IR beacon currently uses a Propeller Activity Board from Parallax because it includes an onboard D/A chip. If another Photon 2 had been available, I would likely have redesigned the beacon circuit and software to use Pulse Width Modulation (PWM) instead of the D/A chip.
 
 ![](/images/IMG-20250321-WA0001_compr.jpg)
 
@@ -20,25 +20,25 @@ As MCU for the rover I chose the Particle Photon 2 as it's so versatile and powe
 
 ### How does it work?
 
-While the rover might look complex, with several electronic components, motors, servo and many mechanical parts, it is actually in the end not complicated at all, perhaps even minimalistic. The reason for this is that there are no unnecessary bells and whistles, the rover is doing what it was planned to do, nothing more, nothing less. The journey while designing and building the end product was though far from simple, with many obstacles on the road.
+Although the rover looks complex due to its electronic components, motors, servo, and mechanical parts, it is actually quite straightforward, even minimalistic. There are no unnecessary bells and whistles - the rover does exactly what it’s intended to do, nothing more, nothing less. However, the journey of designing and building the rover involved overcoming numerous technical challenges.
 
 #### Navigation
 
-Navigation is performed with the help of an IR beacon transmitting a 38 kHz IR-signal of varying intensity. This IR-signal is using the Sony protocol, same as many TV remote controls are using. Unfortunately the IR-receivers - "eyes" - on the rover can only detect if there is - or is not - a modulated IR light present, they can't measure the intensity of the light. This means it isn't possible to navigate only using a constant IR-signal as there's no easy way for the rover to know if it's heading to the left or to the right of the signal beam.  
+Navigation is achieved using an IR beacon transmitting a 38 kHz IR signal of varying intensity, utilizing the Sony protocol—the same used by many TV remote controls. Unfortunately, the IR receivers ("eyes") on the rover can only detect whether a modulated IR signal is present, not its intensity. This limitation makes it impossible to navigate using a constant IR signal alone, as the rover wouldn’t be able to determine if it's to the left or right of the beacon’s beam.
 
 ![](/images/Ice%20Beat-Le-1.png)
 --*Rover on a driveway*--
 
   
 
-To solve this problem, I found a [solution](https://learn.parallax.com/courses/ir-beacon-seeking-activitybot-with-blocklyprop/) involving both transmitting the IR-signal itself as well as changing the intensity of it. By varying the strength of the beacon transmitter and let the rover measure how many times the beacon is seen over a period while its light is varying, the rover is able to navigate.
+To overcome this issue, I adopted a [solution](https://learn.parallax.com/courses/ir-beacon-seeking-activitybot-with-blocklyprop/) that involves varying the intensity of the IR signal. By modulating both the brightness and pulsing of the beacon, the rover measures how frequently it detects the IR signal, allowing it to determine its orientation relative to the beacon.
 
 To generate both the modulated (pulsed) IR signal AND the varying brightness, two different signals are fed into the LED at the same time. The positive leg of the LED connects to an I/O pin, where the code is sending it pulses by turning it on and off 38000 times per second. The negative leg of the LED connects to a D/A-pin, which is changing its voltage output from 0V (full brightness for the LED) to 1.6V (nearly off). Why is 0V bright and 1.6V dim? Because this is where the negative leg is connected. The result is that the “Sawtooth”-like output of D/A is subtracted from the 3.3V pulses from the I/O pin:
 
 
 ![](/images/Ice%20Beat-Le-2.png)
 
-As mentioned, the rover measures for each IR receiver how many time it has seen the IR-light from the beacon, and if one has seen it less times than the other, the rover turns the opposite direction. E.g., as the driveway sketch further above illustrates, the left eye is slightly farther away from the beacon than the right eye, and thus collects less light, leading to that it needs to turn to the right. As the IR-signals might be slightly erratic due to external interference, a separate moving average window is used for each receiver.
+The rover counts how often each IR sensor detects the beacon's light. If one side detects fewer pulses than the other (indicating that side is farther from the beacon), the rover turns in the opposite direction. E.g., in the driveway sketch further above the left sensor receives less light than the right, and thus the rover turns right. Since IR signals can be slightly erratic due to external interference, each receiver uses a moving average to stabilize readings.
 
 
 ![](/images/Ice%20Beat-Le-3.png)
@@ -47,7 +47,7 @@ As mentioned, the rover measures for each IR receiver how many time it has seen 
 
 #### Sanding/Salting 
 
-In the name of simplicity, and instead of inventing a salting mechanism needing a strong motor, I decided to use a force available to all of us for free → gravity. Sand, salt, or any other suitable material is poured into the container which has a hole in the bottom. To avoid that the sand falls away directly, a servo-controlled lid is opened or closed within the main control program. The sand falls down on the spreader which spreads it over approximately a half meter in width while the rover is moving forward. If large particles are used, there's a risk of them getting stuck at the bottom. However, as the rover doesn't have differential steering, it twitches a bit when alternating between driving, turning, and coasting, and I found out that this leads to that potential clogs are easily dissolved.
+In the name of simplicity, and instead of inventing a salting mechanism needing a strong motor, I decided to use a force available to all of us for free → gravity. Sand, salt, or any other suitable material is poured into the container which has a hole in the bottom. To avoid that the sand falls away directly, a servo-controlled lid is opened or closed within the main control program. The sand falls down on the spreader which spreads it over approximately half a meter in width as the rover moves forward. If large particles are used, there's a risk of them clogging the container opening. However, as the rover doesn't have differential steering, it twitches a bit when alternating between driving, turning, and coasting, and I found out that this leads to that potential clogs are easily dissolved.
 
 
 ![](/images/Sanding%20mechanism.png)
@@ -65,11 +65,10 @@ In the name of simplicity, and instead of inventing a salting mechanism needing 
 - 38 kHz Infrared IR Receiver, e.g. [this](https://www.jameco.com/z/TSOP34138-Vishay-Infrared-IR-Receiver-38Khz-Carrier-Frequency-Use-with-Parallax-350-00017-Boe-Sumo_2109691.html?srsltid=AfmBOopVCaDbtUFmN_kAVQGARot6k9othqFZ7YneEFLCrC20eo9ZwV60) 
 - [Kitronik Linear Actuator Kit](https://kitronik.co.uk/products/2595-linear-actuator?_pos=3&_sid=e648f346a&_ss=r)
 - 5V power for the Photon 2, e.g. a small powerbank
-- separate power supply recommended for the motors, max 7.5 VDC
-  - remember to tie GND together if using separate power supplies
+- separate power supply recommended for the motors, max 7.5 VDC; remember to connect grounds
 - large breadboard
-- 2 servo headers to connect to the HB-25 motor controllers
-- 10kΩ resistors, 2 pcs
+- 2 servo headers (for HB-25 motor controllers)
+- Two 10kΩ resistors
 - assorted wires
 
 
@@ -82,7 +81,7 @@ In the name of simplicity, and instead of inventing a salting mechanism needing 
 - 5V power for the microcontroller, e.g. a powerbank
 - assorted wires
 
-Do note that the program is responsible for turning the IR LED on and off, if it's on all the time, it will burn the LED or the resistor. The Mosfet is needed to push out far more current than is possible right out of a microcontroller pin.
+**Note:** Ensure the program cycles the IR LED; constant operation may burn out the LED or resistor. A MOSFET is required to handle higher current beyond the MCU’s capability.
 
 
 ## Assembly Instructions
@@ -247,19 +246,22 @@ A YouTube video is found [here](https://youtu.be/t5bE52Lg39M).
 
 ### Issues overcome
 
-As mentioned earlier, while the end result is minimalistic, the road leading to the goal was not simple or straight, and it indeed had a few bumps and cul-de-sacs. Finding a solution to the challenge of outdoors navigation took some time as I needed to purchase different IR-LEDs and receivers and test them in practice. Learning Fusion 360 from scratch, designing, and 3D-printing the 12 different components also took a significant amount of time, many iterations and roughly 1 kg of filament out of which 80 % was scrapped. 
+As mentioned earlier, while the final result appears minimalistic, the journey to achieve it was neither simple nor straightforward. Indeed, there were several challenges and setbacks along the way. Finding a reliable solution for outdoor navigation took considerable experimentation - I had to acquire and test various IR LEDs and receivers extensively before finding an effective combination. Additionally, learning Fusion 360 from scratch, designing twelve distinct 3D-printed components, and printing numerous iterations consumed significant time and roughly one kilogram of filament, of which approximately 80% ended up as scrap.
 
 ### Future enhancements
 
-This first version of the rover is not completely autonomous, and for safety reasons it moves only while the IR-beacon is transmitting. Right now it only moves forward (and of course turns left or right), but it would be quite easy to have it travel forward for a given time, and reverse the same amount of time. Also quite easy to solve would be to have it cover a wider area, either by larger spreader mechanism or by programming it to travel in different "lanes". To make the rover fully autonomous, it would need bumper switches and/or distance measuring sensors to avoid obstacles, and some type of odometer. A differential GPS with centimeter precision would solve many problems, but would also come with a hefty price tag. 
+This initial version of the rover isn't yet fully autonomous; for safety, it currently only moves when the IR beacon is transmitting. Presently, it moves forward and turns left or right as needed, but it would be relatively straightforward to add functionality enabling it to reverse its route or cover wider areas. Expanding the coverage could be achieved either by implementing a larger spreader mechanism or programming the rover to follow multiple parallel lanes.
 
-For a permanent installation, the breadboard obviously would be replaced with a custom PCB or at least using a protoboard with soldered wires. In addition, the two separate batteries could be replaced with a large capacity battery. 
+To achieve full autonomy, adding bumper switches or distance sensors would allow obstacle avoidance, while integrating an odometer or a high-precision (centimeter-level) differential GPS would significantly enhance navigation capabilities—though these would add to the cost.
+
+For permanent installations, the existing breadboard setup should be replaced by a custom PCB or at least a soldered protoboard. Additionally, the two separate battery systems currently in use could be consolidated into a single, higher-capacity battery for improved efficiency and runtime.
+
 
 ### Final Conclusions
 
 This Ice Curing Rover, affectionately called Ice Beat-Le, is a six-wheeled autonomous vehicle that spreads sand or salt on icy driveways, helping reduce winter slip hazards. At the heart of the rover is the Particle Photon 2, whose powerful yet beginner-friendly platform made it easy to prototype, program, and control the robot’s complex behaviors with minimal overhead. Navigating via a modulated IR-beacon and using a gravity-fed dispenser controlled by a servo, the rover is a compact and cost-effective solution built with 3D-printed parts and off-the-shelf components. The Photon 2’s combination of real-time control, built-in connectivity, and versatility made it the ideal choice for this project - especially for balancing simplicity with performance. With a few additions, such as obstacle sensors or lane logic, the rover could easily evolve into a fully autonomous ice-clearing assistant.
 
-While the road was bumpy to a degree, it led eventually to the goal, and it is now ice free! 
+While the *road* was bumpy to some *degree*, it *led* eventually to the goal, and it is now *ice* free! 
 
 ![](/images/Proud%20Beat-Le.png)
 
