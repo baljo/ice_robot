@@ -38,7 +38,7 @@ To generate both the modulated (pulsed) IR signal AND the varying brightness, tw
 
 ![](/images/Ice%20Beat-Le-2.png)
 
-The rover counts how often each IR sensor detects the beacon's light. If one side detects fewer pulses than the other (indicating that side is farther from the beacon), the rover turns in the opposite direction. E.g., in the driveway sketch further above the left sensor receives less light than the right, and thus the rover turns right. Since IR signals can be slightly erratic due to external interference, each receiver uses a moving average to stabilize readings.
+The rover counts how often each IR sensor detects the beacon's light. If one side detects fewer pulses than the other (indicating that side is farther from the beacon), the rover turns in the opposite direction. E.g., in the driveway sketch further above, the left sensor receives less light than the right, and thus the rover turns right. Since IR signals can be slightly erratic due to external interference, each receiver uses a moving average to stabilize readings.
 
 
 ![](/images/Ice%20Beat-Le-3.png)
