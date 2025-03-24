@@ -2,10 +2,9 @@
 
 ## The Problem
 
-Too many persons get injured (or worse) due to icy conditions, in the US alone there are [tens of thousands of injuries](https://www.bls.gov/opub/ted/2016/42480-work-injuries-involved-ice-sleet-or-snow-in-2014.htm) involving ice, sleet, or snow. Typically the city or state is responsible for ensuring public roads are safe to use, but the responsibility moves to you at the start of your own driveway, and you thus need to ensure it is safe. For this You can of course salt or sand your icy driveway manually, similarly as you can mow your lawn manually, vacuum your home manually, doing the dishes by hand, etc. Curing your driveway from ice might for some be fun and for others tedious, if tedious then look no further but instead continue reading!
+Too many persons get injured (or worse) due to icy conditions, in the US alone there are [tens of thousands of injuries](https://www.bls.gov/opub/ted/2016/42480-work-injuries-involved-ice-sleet-or-snow-in-2014.htm) involving ice, sleet, or snow. Typically the city or state is responsible for ensuring public roads are safe to use, but the responsibility moves to you at the start of your own driveway, and you thus need to ensure it is safe. For this you can of course salt or sand your icy driveway manually, similarly as you can mow your lawn manually, vacuum your home manually, doing the dishes by hand, etc. Curing your driveway from ice might for some be fun and for others tedious, if tedious then look no further but instead continue reading for a solution!
 
 ![](/images/Icy_driveway.jpg)
-
 --*Finland, March 2025*--
 
 
@@ -25,8 +24,7 @@ While the rover might look complex, with several electronic components, motors, 
 
 Navigation is performed with the help of an IR beacon transmitting a 38 kHz IR-signal of varying intensity. This IR-signal is using the Sony protocol, same as many TV remote controls are using. Unfortunately the IR-receivers - "eyes" - on the rover can only detect if there is - or is not - a modulated IR light present, they can't measure the intensity of the light. This means it isn't possible to navigate only using a constant IR-signal as there's no easy way for the rover to know if it's heading to the left or to the right of the signal beam.  
 
-![](/images/Ice%20Beat-Le-01.png)
-
+![](/images/Ice%20Beat-Le-1.png)
 --*Rover on a driveway*--
 
   
@@ -43,9 +41,11 @@ As mentioned, the rover measures for each IR receiver how many time it has seen 
 
 ![](/images/Ice%20Beat-Le-3.png)
 
-#### Sanding/Salting
+![](/images/IR_beacon_case.png)
 
-In the name of simplicity, and instead of inventing a salting mechanism needing a strong motor, I decided to use a force available to all of us for free → gravity. Sand, salt, or any other suitable material is poured into the container which has a hole in the bottom. To avoid that the sand falls away directly, a servo-controlled lid is opened or closed within the main control program. The sand falls down on the spreader which spreads it over approximately a half meter in width while the rover is moving forward. If large particles are used, there's a risk of them getting stuck at the bottom. The rover is however twitching a bit by alternating between driving, turning, and coasting, and I found out that this leads to that potential clogs are dissolved.
+#### Sanding/Salting 
+
+In the name of simplicity, and instead of inventing a salting mechanism needing a strong motor, I decided to use a force available to all of us for free → gravity. Sand, salt, or any other suitable material is poured into the container which has a hole in the bottom. To avoid that the sand falls away directly, a servo-controlled lid is opened or closed within the main control program. The sand falls down on the spreader which spreads it over approximately a half meter in width while the rover is moving forward. If large particles are used, there's a risk of them getting stuck at the bottom. However, as the rover doesn't have differential steering, it twitches a bit when alternating between driving, turning, and coasting, and I found out that this leads to that potential clogs are easily dissolved.
 
 
 ![](/images/Sanding%20mechanism.png)
@@ -63,7 +63,8 @@ In the name of simplicity, and instead of inventing a salting mechanism needing 
 - 38 kHz Infrared IR Receiver, e.g. [this](https://www.jameco.com/z/TSOP34138-Vishay-Infrared-IR-Receiver-38Khz-Carrier-Frequency-Use-with-Parallax-350-00017-Boe-Sumo_2109691.html?srsltid=AfmBOopVCaDbtUFmN_kAVQGARot6k9othqFZ7YneEFLCrC20eo9ZwV60) 
 - [Kitronik Linear Actuator Kit](https://kitronik.co.uk/products/2595-linear-actuator?_pos=3&_sid=e648f346a&_ss=r)
 - 5V power for the Photon 2, e.g. a small powerbank
-- separate power source recommended for the motors, max 7.5 VDC
+- separate power supply recommended for the motors, max 7.5 VDC
+  - remember to tie GND together if using separate power supplies
 - large breadboard
 - 2 servo headers to connect to the HB-25 motor controllers
 - 10kΩ resistors, 2 pcs
