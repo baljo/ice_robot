@@ -10,7 +10,7 @@ Too many persons get injured (or worse) due to icy conditions, in the US alone t
 
 ## The Solution
 
-Meat Ice Beat-Le, a symphatethic looking rover which is beating ice by spreading salt, sand, or any other material on your driveway or lawn. The rover drives with all six wheels, and it navigates with its IR-eyes locking in on an IR-Beacon. 
+Meet Ice Beat-Le, a symphatethic looking rover which is beating ice by spreading salt, sand, or any other material on your driveway or lawn. The rover drives with all six wheels, and it navigates with its IR-eyes locking in on an IR-Beacon. 
 
 As MCU for the rover I chose the Particle Photon 2 as it's so versatile and powerful, but still simple to work with. For the IR beacon I used a Propeller Activity Board from Parallax as it has an D/A chip built in. If I'd had another Photon 2 available, I'd probably redesigned the beacon circuit and program to use PWM (Pulse Width Modulation) instead of the D/A chip.
 
@@ -242,14 +242,24 @@ A YouTube video is found [here](https://youtu.be/t5bE52Lg39M).
 
 
 
-
-## Troubleshooting & FAQ
-Common issues and solutions.
-
 ## Conclusion & Next Steps
 
-This minimalistic first version of the rover is not completely autonomous, and for safety reasons it moves only while the IR-beacon is transmitting. Right now it only moves forward (and of course turns left or right), but it would be quite easy to have it travel forward for a given time, and reverse the same amount of time. To make the rover autonomous, it would need bumper switches and/or distance measuring sensors to avoid obstacles. A differential GPS with centimeter precision would solve many problems, but comes with a hefty price tag.  
+
+### Issues overcome
+
+As mentioned earlier, while the end result is minimalistic, the road leading to the goal was not simple or straight, and it indeed had a few bumps and cul-de-sacs. Finding a solution to the challenge of outdoors navigation took some time as I needed to purchase different IR-LEDs and receivers and test them in practice. Learning Fusion 360 from scratch, designing, and 3D-printing the 12 different components also took a significant amount of time, many iterations and roughly 1 kg of filament out of which 80 % was scrapped. 
+
+### Future enhancements
+
+This first version of the rover is not completely autonomous, and for safety reasons it moves only while the IR-beacon is transmitting. Right now it only moves forward (and of course turns left or right), but it would be quite easy to have it travel forward for a given time, and reverse the same amount of time. Also quite easy to solve would be to have it cover a wider area, either by larger spreader mechanism or by programming it to travel in different "lanes". To make the rover fully autonomous, it would need bumper switches and/or distance measuring sensors to avoid obstacles, and some type of odometer. A differential GPS with centimeter precision would solve many problems, but would also come with a hefty price tag. 
+
+For a permanent installation, the breadboard obviously would be replaced with a custom PCB or at least using a protoboard with soldered wires. In addition, the two separate batteries could be replaced with a large capacity battery. 
+
+### Final Conclusions
+
+This Ice Curing Rover, affectionately called Ice Beat-Le, is a six-wheeled autonomous vehicle that spreads sand or salt on icy driveways, helping reduce winter slip hazards. At the heart of the rover is the Particle Photon 2, whose powerful yet beginner-friendly platform made it easy to prototype, program, and control the robot’s complex behaviors with minimal overhead. Navigating via a modulated IR-beacon and using a gravity-fed dispenser controlled by a servo, the rover is a compact and cost-effective solution built with 3D-printed parts and off-the-shelf components. The Photon 2’s combination of real-time control, built-in connectivity, and versatility made it the ideal choice for this project - especially for balancing simplicity with performance. With a few additions, such as obstacle sensors or lane logic, the rover could easily evolve into a fully autonomous ice-clearing assistant.
+
+While the road was bumpy to a degree, it led eventually to the goal, and is now ice free! 
 
 
-Learning Fusion 360 from scratch, designing, and 3D-printing the 12 different components took a lot of time, many iterations and roughly 1 kg of filament out of which 80 % was scrapped.
-Possible future enhancements.
+
