@@ -259,7 +259,7 @@ For a permanent installation, the breadboard obviously would be replaced with a 
 
 This Ice Curing Rover, affectionately called Ice Beat-Le, is a six-wheeled autonomous vehicle that spreads sand or salt on icy driveways, helping reduce winter slip hazards. At the heart of the rover is the Particle Photon 2, whose powerful yet beginner-friendly platform made it easy to prototype, program, and control the robot’s complex behaviors with minimal overhead. Navigating via a modulated IR-beacon and using a gravity-fed dispenser controlled by a servo, the rover is a compact and cost-effective solution built with 3D-printed parts and off-the-shelf components. The Photon 2’s combination of real-time control, built-in connectivity, and versatility made it the ideal choice for this project - especially for balancing simplicity with performance. With a few additions, such as obstacle sensors or lane logic, the rover could easily evolve into a fully autonomous ice-clearing assistant.
 
-While the road was bumpy to a degree, it led eventually to the goal, and is now ice free! 
+While the road was bumpy to a degree, it led eventually to the goal, and it is now ice free! 
 
-
+![](/images/Proud%20Beat-Le.png)
 
