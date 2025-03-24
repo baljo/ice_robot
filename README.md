@@ -12,6 +12,8 @@ Too many persons get injured (or worse) due to icy conditions, in the US alone t
 
 Meat Ice Beat-Le, a symphatethic looking rover which is beating ice by spreading salt, sand, or any other material on your driveway or lawn. The rover drives with all six wheels, and it navigates with its IR-eyes locking in on an IR-Beacon. 
 
+As MCU for the rover I chose the Particle Photon 2 as it's so versatile and powerful, but still simple to work with. For the IR beacon I used a Propeller Activity Board from Parallax as it has an D/A chip built in. If I'd had another Photon 2 available, I'd probably redesigned the beacon circuit and program to use PWM (Pulse Width Modulation) instead of the D/A chip.
+
 ![](/images/IMG-20250321-WA0001_compr.jpg)
 
 
@@ -233,9 +235,13 @@ void drive(int left_speed, int right_speed, int time) {
 
 ## Final Demonstration
 
+A YouTube video is found [here](https://youtu.be/t5bE52Lg39M).
+
+
 ![](/images ****************/Ice_Beat_Le.gif)
 
-Videos, GIFs, or images demonstrating the final result.
+
+
 
 ## Troubleshooting & FAQ
 Common issues and solutions.
