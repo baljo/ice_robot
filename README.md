@@ -72,7 +72,7 @@ In the name of simplicity, and instead of inventing a salting mechanism needing 
 
 
 **IR Beacon**
-- [Propeller Activity Board](https://www.parallax.com/product/propeller-activity-board-wx/), or any other microcontroller board with an D/A-chip
+- [Propeller Activity Board](https://www.parallax.com/product/propeller-activity-board-wx/), or any other microcontroller board with an D/A-chip. It is also possible to use PWM (Pulse Width Modulation) to replicate change in intensity.
 - [TSAL6200 IR LED](https://www.partco.fi/en/leds/special-purpose-leds/17474-tsal6200.html), TSAL6100 even better as it has narrower angle
 - [IRLZ44N Mosfet](https://www.partco.fi/en/electronic-components/actives/bjt-and-fet/switching-fets-n-channel/5057-irlz44n.html)
 - 2.2Ω Resistor
@@ -83,20 +83,42 @@ In the name of simplicity, and instead of inventing a salting mechanism needing 
 Do note that the program is responsible for turning the IR LED on and off, if it's on all the time, it will burn the LED or the resistor. The Mosfet is needed to push out far more current than is possible right out of a microcontroller pin.
 
 
-
-
 ## Assembly Instructions
-Detailed step-by-step build process.
 
-## Wiring and Schematics
-Clear visuals and schematics.
+- Assemble the rover itself according to instructions, my rover came preassembled as it was a used one.
+
+- 3D-print the different components, most of them do not need supports if they are rotated properly. For most parts I used an infill of 10-20 %. 
+- Feel free to redesign the components according to your platform and needs. Remember to add tolerances when designing pieces that need to fit together!
+
+### Wiring and Schematics
+
+#### Rover Electronics
+
+- Fritzing diagram 
+
+![](/images/ice_robot_bb.png)
+
+- Close up photo, do note that the lid controlling servo is left out of the photo for clarity, it is connected to VUSB and D16.
+
+![](/images/Rover%20electronics.png)
+
+#### IR Beacon
+
+- Fritzing diagram
+
+![](/images/IR_beacon_bb.jpg)
+
+- Close up photo. To narrow the infrared beam a bit, the IR LED is equipped with a plastic straw enclosed in black electronic tape.
+
+![](/images/Beacon%20electronics.png)
 
 ## Software Setup
+
 Code installation and usage instructions.
 
 ## Final Demonstration
 
-![](/images/Ice_Beat_Le.gif)
+![](/images ****************/Ice_Beat_Le.gif)
 
 Videos, GIFs, or images demonstrating the final result.
 
