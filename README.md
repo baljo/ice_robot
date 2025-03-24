@@ -94,21 +94,37 @@ Do note that the program is responsible for turning the IR LED on and off, if it
 
 #### Rover Electronics
 
+- Photon 2 connections
+
+| Photon 2 | To                 |   
+|--------- |--------------------|
+| D15      | Left motor signal  |  
+| D1       | Right motor signal |  
+| D2       | Left IR signal     |  
+| D10      | Right IR signal    |   
+| D16      | Lid servo signal   |  
+| VUSB     | Lid servo power    | 
+
 - Fritzing diagram 
 
 ![](/images/ice_robot_bb.png)
 
-- Close up photo, do note that the lid controlling servo is left out of the photo for clarity, it is connected to VUSB and D16.
+- Close-up photo, do note that the lid controlling servo is left out of the photo for clarity, it is connected to VUSB and D16.
 
 ![](/images/Rover%20electronics.png)
 
+
+
+
+
+
 #### IR Beacon
 
-- Fritzing diagram
+- Fritzing diagram. In my setup I'm using the Propeller Activity Board as it has a D/A-chip.
 
 ![](/images/IR_beacon_bb.jpg)
 
-- Close up photo. To narrow the infrared beam a bit, the IR LED is equipped with a plastic straw enclosed in black electronic tape.
+- Close-up photo. To narrow the infrared beam a bit, the IR LED is equipped with a plastic straw enclosed in black electronic tape.
 
 ![](/images/Beacon%20electronics.png)
 
