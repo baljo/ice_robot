@@ -238,7 +238,7 @@ void drive(int left_speed, int right_speed, int time) {
 A YouTube video is found [here](https://youtu.be/t5bE52Lg39M).
 
 
-![](/images ****************/Ice_Beat_Le.gif)
+![](/images/Ice_Beat_Le.gif)
 
 
 
