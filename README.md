@@ -132,6 +132,29 @@ Do note that the program is responsible for turning the IR LED on and off, if it
 
 Code installation and usage instructions.
 
+```
+// Read the IR sensors
+// leftOut and rightOut are passed by reference
+// They will be updated with the number of times the IR sensor was triggered
+// The higher the number, the closer the sensor is to an object
+
+void IR_read(int &leftOut, int &rightOut) {
+  int leftIR = 0;
+  int rightIR = 0;
+  
+  // Sample 96 times (16 * 6)
+  for(int n = 0; n < 96; n++) {
+    leftIR  += !digitalRead(LEFT_IR_PIN);                   // Read the digital value of the IR sensor
+    rightIR += !digitalRead(RIGHT_IR_PIN);                  // Read the digital value of the IR sensor
+    delay(1);                                               // 1 ms between samples
+  }
+  
+  // Assign results to the provided references
+  leftOut  = leftIR;
+  rightOut = rightIR;
+}
+```
+
 ## Final Demonstration
 
 ![](/images ****************/Ice_Beat_Le.gif)
@@ -143,7 +166,7 @@ Common issues and solutions.
 
 ## Conclusion & Next Steps
 
-This minimalistic first version of the rover is not completely autonomous, and it moves only while the IR-beacon is transmitting. Right now it only moves forward (and of course turns left or right), but it would be quite easy to have it travel forward for a given time, and reverse the same amount of time. To make the rover autonomous, it would need bumper switches and/or distance measuring sensors to avoid obstacles. A differential GPS with centimeter precision would solve many problems, but comes with a hefty price tag.  
+This minimalistic first version of the rover is not completely autonomous, and for safety reasons it moves only while the IR-beacon is transmitting. Right now it only moves forward (and of course turns left or right), but it would be quite easy to have it travel forward for a given time, and reverse the same amount of time. To make the rover autonomous, it would need bumper switches and/or distance measuring sensors to avoid obstacles. A differential GPS with centimeter precision would solve many problems, but comes with a hefty price tag.  
 
 
 Learning Fusion 360 from scratch, designing, and 3D-printing the 12 different components took a lot of time, many iterations and roughly 1 kg of filament out of which 80 % was scrapped.
