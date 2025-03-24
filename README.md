@@ -128,9 +128,39 @@ Do note that the program is responsible for turning the IR LED on and off, if it
 
 ![](/images/Beacon%20electronics.png)
 
-## Software Setup
+## Software Description
 
-Code installation and usage instructions.
+Below a description of the main functions.
+
+### IR Beacon
+
+The beacon program is very simple, it pulses out IR light with a frequency of 38 kHz, in this case using pin 11 on the Propeller MCU. Every pulse is 3 milliseconds in length. The intensity is changed between nearly off until fully lit (330 = 3.3V).
+
+```
+// ------ Libraries and Definitions ------
+#include "simpletools.h"
+#include "abvolts.h"
+
+// ------ Global Variables and Objects ------
+int dimmer;
+
+// ------ Main Program ------
+int main() {
+  da_init(26, 27);
+  while(1) {
+    for (dimmer = 0; dimmer < 160; dimmer += (10)) {
+      da_out(0, (dimmer* 256 / 330));
+      freqout(11, 3, 38000);
+    }
+  }
+}
+
+```
+
+### Photon 2
+
+
+- The function `IR_read` reads the IR sensors 96 times per loop and accumulates the pulses read per sensor. The higher the number is, the closer or more aligned the sensor is to the beacon.
 
 ```
 // Read the IR sensors
@@ -153,6 +183,52 @@ void IR_read(int &leftOut, int &rightOut) {
   leftOut  = leftIR;
   rightOut = rightIR;
 }
+```
+
+- The function `drive` drives the rover by the speed received for each side. The motors are off when the value is 90, and as they need to rotate in opposite directions the given speed is added to 90 for the left motors, and subtracted from 90 for the right motors. 
+
+```
+void drive(int left_speed, int right_speed, int time) {
+  left.write(90 + left_speed);    // Move left motor forward
+  right.write(90 - right_speed);  // Move right motor forward
+  delay(time);                    // Delay selected time
+}
+```
+
+- The main loop consists of reading the IR sensors, calculate a rolling average for each of them, and based on possible difference between the readings turn right or left. As the rover's minimum speed is too fast indoors, it is alternating between driving forware, coasting, or turning.
+
+```
+  IR_read(leftIR, rightIR);                                 // Read the IR sensors  
+----------------------
+  int left_avg = calculateRollingAverage(leftIR, 0);        // Rolling average for Sensor 1
+  int right_avg = calculateRollingAverage(rightIR, 1);      // Rolling average for Sensor 2
+  int diff = coeff * (left_avg - right_avg);                // Calculate the difference between the IR sensors
+----------------------
+  int left_avg = calculateRollingAverage(leftIR, 0);        // Rolling average for Sensor 1
+  int right_avg = calculateRollingAverage(rightIR, 1);      // Rolling average for Sensor 2
+  int diff = coeff * (left_avg - right_avg);                // Calculate the difference between the IR sensors
+----------------------
+// If either leftIR or rightIR is very low, don't move
+  while (left_avg <= 2 || right_avg <= 2 && left_avg != right_avg) {
+    Log.info("Seeking IR signal");
+
+    IR_read(leftIR, rightIR);
+    left_avg = calculateRollingAverage(leftIR, 0);          // Rolling average for Sensor 1
+    right_avg = calculateRollingAverage(rightIR, 1);        // Rolling average for Sensor 2
+    diff = coeff * (left_avg - right_avg);                  // Calculate the difference between the IR sensors
+
+    Log.info("   Left avg: %2d,   Right avg: %2d,   Diff: %3d", left_avg, right_avg, left_avg - right_avg);
+  }
+
+  if (diff == 0) {                                          // If the difference is 0, drive straight
+    drive(leftSpeed, rightSpeed, drive_time);
+  } else if (diff > 0) {                                    // If the difference is positive, turn right
+    drive(leftSpeed, rightSpeed + diff, drive_time);
+  } else {                                                  // If the difference is negative, turn left
+    drive(leftSpeed - diff, rightSpeed, drive_time);
+  }
+
+  drive(leftSpeed / 3, rightSpeed / 3, drive_time);         // Drive forward at a slower speed, otherwise the robot will drive too fast
 ```
 
 ## Final Demonstration
