@@ -5,7 +5,7 @@
 Too many persons get injured (or worse) due to icy conditions, in the US alone there are [tens of thousands of injuries](https://www.bls.gov/opub/ted/2016/42480-work-injuries-involved-ice-sleet-or-snow-in-2014.htm) involving ice, sleet, or snow. Typically, the city or state is responsible for ensuring public roads are safe, but responsibility shifts to you at the start of your own driveway. Thus, you need to ensure it is safe yourself. You can, of course, salt or sand your icy driveway manually, just as you can mow your lawn, vacuum your home, or wash dishes by hand. While curing your driveway from ice might be enjoyable for some, it’s tedious for others. If you find yourself in the latter group, read on for a solution!
 
 ![](/images/Icy_driveway.jpg)
---*Finland, March 2025*--
+--*Finland, February 22, 2025*--
 
 
 ## The Solution
